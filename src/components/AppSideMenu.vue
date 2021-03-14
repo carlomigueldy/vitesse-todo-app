@@ -23,8 +23,8 @@ const pages: Page[] = [
 <template>
   <aside class="relative overflow-auto shadow-lg w-96 z-50 h-full">
     <div class="flex justify-center items-center w-full h-20 ">
-      <mdi:facebook-messenger class="mr-3 text-2xl"></mdi:facebook-messenger>
-      <div class="text-2xl">App Name</div>
+      <mdi:hockey-puck/>
+      <div class="text-2xl">Todo App</div>
     </div>
 
     
