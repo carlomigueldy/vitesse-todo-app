@@ -4,10 +4,9 @@ import { defineProps } from "@vue/runtime-core";
 
 // const route = useRoute()
 
-const { label, icon } = defineProps({
-  icon: {
-    type: String,
-    required: true,
+const { label } = defineProps({
+  isActive: {
+    type: Boolean,
   },
   label: {
     type: String,
@@ -17,10 +16,18 @@ const { label, icon } = defineProps({
 </script>
 
 <template>
-  <div class="hover:bg-green-100 hover:text-green-700 cursor-pointer bg-green-50 m-3 rounded-md p-3 text-green-600 font-bold">
-    <!-- {{icon}} -->
-    <component tag="mdi:home" is="mdi:home"></component>
-    <app-tag :is="icon"></app-tag>
+  <div :class="{
+    'hover:bg-blue-100': true,
+    'hover:text-blue-700': true,
+    'bg-blue-50': isActive,
+    'cursor-pointer': true,
+    'm-3': true,
+    'rounded-md': true,
+    'p-3': true,
+    'text-blue-600': true,
+    'font-bold': true
+  }">
+    <slot name="icon"></slot>
     <span>{{ label }}</span>
   </div>
 </template>

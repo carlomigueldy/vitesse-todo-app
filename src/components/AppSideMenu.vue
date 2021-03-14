@@ -1,42 +1,36 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-
-type Page = {
-  label?: string;
-  route: string;
-}
+import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter()
-
-const pages: Page[] = [
-  {
-    label: "Home",
-    route: "index"
-  },
-  {
-    label: "Posts",
-    route: "posts"
-  },
-]
+const route = useRoute()
 </script>
 
 <template>
   <aside class="relative overflow-auto shadow-lg w-96 z-50 h-full">
     <div class="flex justify-center items-center w-full h-20 ">
-      <mdi:hockey-puck/>
-      <div class="text-2xl">Todo App</div>
+      <div class="text-2xl">Vite Todo App</div>
     </div>
-
-    
 
     <div class="my-10">
       <app-side-menu-item 
-        v-for="(page, index) in pages" 
-        :key="index" 
-        icon="mdi:home" 
-        @click="router.push({ name: page.route })"
-        :label="page.label"
-      ></app-side-menu-item>
+        :is-active="route.name === 'index'"
+        label="Home"
+        @click="router.push({ name: 'index' })"
+      >
+        <template #icon>
+          <mdi:home class="mr-3" />
+        </template>
+      </app-side-menu-item>
+
+      <app-side-menu-item 
+        :is-active="route.name === 'settings'"
+        label="Settings"
+        @click="router.push({ name: 'settings' })"
+      >
+        <template #icon>
+          <mdi:cog class="mr-3" />
+        </template>
+      </app-side-menu-item>
     </div>
  
     <div class="absolute bottom-0 left-0 right-0 p-5 flex justify-start items-center">

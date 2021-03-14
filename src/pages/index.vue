@@ -7,7 +7,9 @@
 </script>
 
 <template>
-  <div>Admin</div>
+  <div>
+    <h1 class="text-2xl">My todos</h1>
+  </div>
 </template>
 
 <route lang="yaml">
